@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript"
+                src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'
+                referrerpolicy="origin">
+        </script>
+        <script>
+            tinymce.init({
+                  selector: 'textarea#basic-example',
+                  height: 500,
+                  menubar: false,
+                  plugins: [
+                          'advlist', 'autolink', 'lists', 'link', 'image',
+                      'charmap', 'print', 'preview', 'anchor',
+                      'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                      'insertdatetime', 'media', 'table', 'paste', 'code',
+                      'help', 'wordcount',
+                  ],
+                  toolbar: 'undo redo | formatselect | ' +
+                  'bold italic backcolor | alignleft aligncenter ' +
+                  'alignright alignjustify | bullist numlist outdent indent | ' +
+                  'removeformat | help | customInsertButton',
+                  content_style: 'body {font-family:Helvetica,Arial,sans-serif; font-size:14px}',
+                  cleanup_on_startup : true,
+                  //paste_as_text: true,
+                  paste_auto_cleanup_on_paste : true,
+                  inline_styles:false,
+                  setup: function(editor){
+                      editor.ui.registry.addButton('customInsertButton',{
+                          text:'My Button',
+                          onAction: function(_){
+                              editor.insertContent('<testtag><h4>My Button</h4></testtag>');
+                          }
+                      });
+                  },
+            });
+        </script>
+        <script>
+            function submitText(){
+                // Get the HTML contents of the currently active editor
+                //var text = tinyMCE.activeEditor.getContent();
+                //alert("text is: "+text);
+
+                // Get the raw contents of the currently active editor
+                var text = tinyMCE.activeEditor.getContent({format : 'raw'});
+                alert('text is:'+text);
+                document.getElementById('entered-text').value = text;
+
+                // Get content of a specific editor:
+                //var text = tinyMCE.get('basic-example').getContent();
+                //alert('text: '+text);
+            }
+        </script>
+    </head>
+    <body>
+        Enter text : <br>
+        <textarea id='basic-example'>
+        </textarea>
+        <br><br>
+        <button id='submit-text' onclick='submitText();'> Submit
+        </button><br><br>
+        <div>
+            Entered Text: &emsp;
+            <textarea id='entered-text'></textarea>
+        </div>
+    </body>
+</html>
