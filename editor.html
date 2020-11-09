@@ -9,17 +9,23 @@
             tinymce.init({
                   selector: 'textarea#basic-example',
                   height: 500,
-                  menubar: false,
+                  menubar: 'file view insert edit tools table',
                   plugins: [
                           'advlist', 'autolink', 'lists', 'link', 'image',
                       'charmap', 'print', 'preview', 'anchor',
                       'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                      'insertdatetime', 'media', 'table', 'paste', 'code',
+                      'insertdatetime', 'media', 'table', 'paste',
                       'help', 'wordcount',
                   ],
                   toolbar: 'undo redo | formatselect | ' +
                   'bold italic backcolor | alignleft aligncenter ' +
                   'alignright alignjustify | bullist numlist outdent indent | ' +
+                  'link | image | charmap print preview anchor searchreplace' +
+                  'visualblocks code fullscreen | insertdatetime | media | ' +
+                  'table tabledelete | tableprops tablerowprops tablecellprops | ' +
+                  'tableinsertrowbefore tableinsertrowafter tabledeleterow | ' +
+                  'tableinsertcolbefore tableinsertcolafter tabledeletecol | ' +
+                  'paste pastetext | wordcount |' +
                   'removeformat | help | customInsertButton',
                   content_style: 'body {font-family:Helvetica,Arial,sans-serif; font-size:14px}',
                   cleanup_on_startup : true,
