@@ -15,8 +15,12 @@
                       'charmap', 'print', 'preview', 'anchor',
                       'searchreplace', 'visualblocks', 'code', 'fullscreen',
                       'insertdatetime', 'media', 'table', 'paste',
-                      'help', 'wordcount',
+                      'help', 'wordcount', 'youtube',
                   ],
+                  external_plugins: {
+                      'youtube':'http://0.0.0.0:8000/tinymce/js/tinymce/plugins/youtube/plugin.min.js',
+                  },
+                  extended_valid_elements : 'iframe[src|frameborder|style|scrolling|class|width|height|name|align]',
                   toolbar: 'undo redo | formatselect | ' +
                   'bold italic backcolor | alignleft aligncenter ' +
                   'alignright alignjustify | bullist numlist outdent indent | ' +
@@ -26,7 +30,7 @@
                   'tableinsertrowbefore tableinsertrowafter tabledeleterow | ' +
                   'tableinsertcolbefore tableinsertcolafter tabledeletecol | ' +
                   'paste pastetext | wordcount |' +
-                  'removeformat | help | customInsertButton',
+                  'removeformat | help | customInsertButton | youtube',
                   content_style: 'body {font-family:Helvetica,Arial,sans-serif; font-size:14px}',
                   cleanup_on_startup : true,
                   //paste_as_text: true,
